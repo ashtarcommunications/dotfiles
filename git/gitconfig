@@ -1,2 +1,5 @@
 [include]
 	path = ~/.gitconfig.local
+[user]
+	email = ashtarcommunications@gmail.com
+	name = Aaron Hardy

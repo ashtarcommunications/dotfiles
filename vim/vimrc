@@ -62,9 +62,6 @@ endfunction
 "vim-plug config
 "https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-
-"Plug 'junegunn/vim-easy-align'
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 call plug#end()
+
