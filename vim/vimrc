@@ -1,0 +1,70 @@
+"Use VIM settings, not VI - has to be first
+set nocompatible
+
+"Use the Solarized Dark theme and syntax highlighting
+syntax enable
+set guifont=Consolas:h10 	"More readable font
+set background=dark
+colorscheme solarized
+
+"General Options
+set number			"Line numbers
+set incsearch		"Find as we type
+set showmatch		"Show matching brackets
+set hlsearch		"Highlight search matches
+set ignorecase		"Case insensitive search
+set smartcase		"Unless we type a capital
+set scrolloff=8		"Scroll away from margins
+set sidescrolloff=15
+set sidescroll=1
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set ruler
+set mouse=a			"Allow mouse in all modes
+set nobackup		"Turn off swap files
+set nowritebackup
+set noswapfile
+set hidden			"Buffer in background without window
+set visualbell		"No sounds
+
+imap jk <ESC>		
+
+"Diff function
+set diffexpr=MyDiff()
+function MyDiff()
+	let opt = '-a --binary '
+	if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+	if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+	let arg1 = v:fname_in
+	if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+	let arg2 = v:fname_new
+	if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+	let arg3 = v:fname_out
+	if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+	let eq = ''
+	if $VIMRUNTIME =~ ' '
+		if &sh =~ '\<cmd'
+			let cmd = '""' . $VIMRUNTIME . '\diff"'
+			let eq = '"'
+		else
+			let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+		endif
+	else
+		let cmd = $VIMRUNTIME . '\diff'
+	endif
+	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+"vim-plug config
+"https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+
+"Plug 'junegunn/vim-easy-align'
+"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+call plug#end()

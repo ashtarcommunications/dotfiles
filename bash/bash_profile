@@ -1,0 +1,18 @@
+alias l="ls -la"       # List in long format, include dotfiles
+alias ld="ls -ld */"   # List in long format, only directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias cd..='cd ../'                         
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+# Flip through autocompletion matches with Shift-Tab.
+"\e[Z": menu-complete
+
+export EDITOR="vim"
+export CLICOLOR=1
+# Tell grep to highlight matches
+export GREP_OPTIONS='—color=auto'
