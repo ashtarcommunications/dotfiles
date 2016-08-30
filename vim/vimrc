@@ -30,6 +30,9 @@ set nowritebackup
 set noswapfile
 set hidden			"Buffer in background without window
 set visualbell		"No sounds
+set backspace=indent,eol,start
+set laststatus=2
+set splitbelow		"Open split windows below current
 
 imap jk <ESC>		
 
@@ -62,6 +65,17 @@ endfunction
 "vim-plug config
 "https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'pangloss/vim-javascript'
+Plug 'godlygeek/tabular'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
+"Plugins that might be useful someday
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/syntastic'
+
 call plug#end()
 
