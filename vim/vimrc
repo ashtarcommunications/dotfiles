@@ -6,6 +6,8 @@ syntax enable
 set guifont=Consolas:h10 	"More readable font
 set background=dark
 colorscheme solarized
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 "General Options
 set number			"Line numbers
