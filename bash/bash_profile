@@ -7,7 +7,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cd..="cd ../"
-alais vpn="openvpn --config /etc/openvpn/frigg.ovpn"
+alias vpn="openvpn --config /etc/openvpn/frigg.ovpn"
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
