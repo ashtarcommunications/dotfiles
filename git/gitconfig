@@ -3,3 +3,5 @@
 [user]
 	email = ashtarcommunications@gmail.com
 	name = Aaron Hardy
+[credential]
+	helper = store
