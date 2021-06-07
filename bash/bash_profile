@@ -8,6 +8,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cd..="cd ../"
 alias vpn="sudo openvpn --config /etc/openvpn/frigg.ovpn"
+alias mail="/usr/local/bin/thunderbird/thunderbird -profile /home/aaron/Dropbox/Mail/Data/profile &"
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
@@ -19,4 +20,7 @@ export CLICOLOR=1
 
 # Don't include duplicate lines in history
 export HISTCONTROL=ignoredups
+
+# Set gpodder home
+export GPODDER_HOME=/data/Podcasts/gpodder/config
 
