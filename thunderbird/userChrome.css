@@ -1,0 +1,27 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
+
+calendar-month-day-box calendar-month-day-box-item .calendar-color-box {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    color: var(--item-backcolor) !important;
+    font-size: 10px !important;
+}
+
+calendar-month-day-box calendar-month-day-box-item[allday="true"] .calendar-color-box {
+    background-color: var(--item-backcolor) !important;
+    color: white !important;
+}
+
+.calendar-event-box-container {
+    background: none !important;
+}
+
+calendar-month-day-box calendar-month-day-box-item[allday="true"] .calendar-color-box .calendar-event-box-container {
+    background-color: var(--item-backcolor) !important;
+}
+
+calendar-event-box[invitation-status="NEEDS-ACTION"], calendar-editable-item[invitation-status="NEEDS-ACTION"], calendar-month-day-box-item[invitation-status="NEEDS-ACTION"] {
+    border: none !important;
+    opacity: 1 !important;
+}
