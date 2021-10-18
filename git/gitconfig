@@ -5,3 +5,7 @@
 	name = Aaron Hardy
 [credential]
 	helper = store
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
