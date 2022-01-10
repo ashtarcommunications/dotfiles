@@ -13,3 +13,23 @@
     color: white !important;
 }
 
+.calendar-month-day-box-day-off {
+    background-color: #444444 !important;
+}
+
+.calendar-month-day-box-other-month {
+    background-color: #666666 !important;
+}
+
+.calendar-month-day-box-other-month[selected="true"] {
+    background-color: #222222 !important;
+}
+
+.calendar-month-day-box-current-month[selected="true"] {
+    background-color: #222222 !important;
+}
+
+.calendar-month-day-box-current-month[relation="today"] {
+    background-color: #EEEEEE !important;
+}
+
