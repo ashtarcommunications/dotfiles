@@ -37,6 +37,10 @@ download_yt_playlist() {
     youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
 }
 
+download_yt_user() {
+    youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
+}
+
 album_split() {
     cd ~/projects/album-splitter && source venv/bin/activate && python3 -m album_splitter -yt "$1" --artist "$2" --album "$3"
 }
