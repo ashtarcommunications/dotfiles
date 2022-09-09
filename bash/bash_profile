@@ -9,7 +9,7 @@ alias ....="cd ../../.."
 alias cd..="cd ../"
 alias vpn="sudo openvpn --config /etc/openvpn/frigg.ovpn"
 alias mail="/usr/local/bin/thunderbird/thunderbird -profile /home/aaron/Dropbox/Mail/Data/profile &"
-alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 "${i%.*}.mp3"; done'
+alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
@@ -27,5 +27,17 @@ export GPODDER_HOME=/data/Podcasts/gpodder/config
 
 download_bc() {
 	youtube-dl --sleep-interval 60 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(track_number)s - %(track)s.%(ext)s" "$1"
+}
+
+download_yt() {
+	youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$1"
+}
+
+download_yt_playlist() {
+	youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
+}
+
+album_split() {
+    cd ~/projects/album-splitter && source venv/bin/activate && python3 -m album_splitter -yt "$1" --artist "$2" --album "$3"
 }
 
