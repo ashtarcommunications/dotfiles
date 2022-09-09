@@ -34,7 +34,7 @@ download_yt() {
 }
 
 download_yt_playlist() {
-	youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
+    youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
 }
 
 album_split() {
