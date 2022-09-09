@@ -24,3 +24,7 @@ export HISTCONTROL=ignoredups
 # Set gpodder home
 export GPODDER_HOME=/data/Podcasts/gpodder/config
 
+download_bc() {
+	youtube-dl --sleep-interval 60 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(track_number)s - %(track)s.%(ext)s" "$1"
+}
+
