@@ -8,7 +8,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cd..="cd ../"
 alias vpn="sudo openvpn --config /etc/openvpn/frigg.ovpn"
-alias mail="/usr/local/bin/thunderbird/thunderbird -profile /home/hardy/Dropbox/Mail/Data/profile &"
+alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm2.default-release &"
 alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
 alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
@@ -25,6 +25,7 @@ export HISTCONTROL=ignoredups
 
 # Set gpodder home
 export GPODDER_HOME=/data/Podcasts/gpodder/config
+export GPODDER_DOWNLOAD_DIR=/data/Podcasts/gpodder/config
 
 download_bc() {
 	youtube-dl --sleep-interval 60 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(track_number)s - %(track)s.%(ext)s" "$1"
