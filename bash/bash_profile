@@ -10,6 +10,7 @@ alias cd..="cd ../"
 alias vpn="sudo openvpn --config /etc/openvpn/frigg.ovpn"
 alias mail="/usr/local/bin/thunderbird/thunderbird -profile /home/hardy/Dropbox/Mail/Data/profile &"
 alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
+alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
