@@ -13,9 +13,9 @@ alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3";
 alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
 # Make Tab autocomplete regardless of filename case
-set completion-ignore-case on
+bind 'set completion-ignore-case on'
 # List all matches in case multiple possible completions are possible
-set show-all-if-ambiguous on
+bind 'set show-all-if-ambiguous on'
 
 export EDITOR="vim"
 export CLICOLOR=1
