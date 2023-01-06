@@ -74,6 +74,7 @@ Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'preservim/vim-markdown'
 
 "Plugins that might be useful someday
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
