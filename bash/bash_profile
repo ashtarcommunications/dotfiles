@@ -9,6 +9,7 @@ alias ....="cd ../../.."
 alias cd..="cd ../"
 alias vpn="sudo openvpn --config /etc/openvpn/frigg.ovpn"
 alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm2.default-release &"
+alias journal="vim `ls -t ~/Nextcloud/Writing/Journals/*.md | head -1`"
 alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
 alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
