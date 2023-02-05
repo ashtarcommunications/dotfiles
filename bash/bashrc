@@ -1,4 +1,5 @@
 PATH="/usr/local/bin:$(getconf PATH)"
+PATH="/home/hardy/.local/bin:$(getconf PATH)"
 EDITOR="vim"
 VISUAL="vim"
 
