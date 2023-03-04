@@ -1,5 +1,4 @@
-PATH="/usr/local/bin:$(getconf PATH)"
-PATH="/home/hardy/.local/bin:$(getconf PATH)"
+export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
 EDITOR="vim"
 VISUAL="vim"
 
@@ -7,7 +6,6 @@ VISUAL="vim"
 
 #Prevent Ctrl+S and Ctrl+Q from affecting scrolling in terminals
 [[ $- == *i* ]] && stty -ixon
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
