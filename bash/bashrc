@@ -19,3 +19,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/hardy/perl5"; export PERL_MM_OPT;
 
 complete -C /usr/bin/terraform terraform
 . "$HOME/.cargo/env"
+
+#Enable FZF key bindings
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
