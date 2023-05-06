@@ -4,7 +4,7 @@
 	email = ashtarcommunications@gmail.com
 	name = Aaron Hardy
 [credential]
-	helper = store
+	helper = store --file ~/.git-credentials
 [color]
 	ui = auto
 [init]
