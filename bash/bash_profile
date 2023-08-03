@@ -30,7 +30,7 @@ export GPODDER_HOME=/data/Podcasts/gpodder/config
 export GPODDER_DOWNLOAD_DIR=/data/Podcasts
 
 download_bc() {
-    youtube-dl --sleep-interval 20 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(artist)s - %(playlist)s/%(track_number)s - %(track)s.%(ext)s" "$1"
+    yt-dlp --sleep-interval 20 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(artist)s - %(playlist)s/%(track_number)s - %(track)s.%(ext)s" "$1"
 }
 
 download_bc_bulk() {
@@ -40,15 +40,15 @@ download_bc_bulk() {
 }
 
 download_yt() {
-	youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$1"
+	yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$1"
 }
 
 download_yt_playlist() {
-    youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
+    yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
 }
 
 download_yt_user() {
-    youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
+    yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
 }
 
 album_split() {
