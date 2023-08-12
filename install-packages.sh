@@ -1,6 +1,7 @@
 #!/bin/bash
 
-apt-get install -y awscli \
+apt-get install -y \
+    awscli \
     buildah \
     build-essential \
     code \
@@ -26,8 +27,10 @@ apt-get install -y awscli \
     vagrant \
     vim \
     virtualbox \
-    youtube-dl \
     yt-dlp \
     zeal \
     zoom
+
+python3 -m ensurepip --upgrade
+python3 -m pip install konsave --break-system-package
 
