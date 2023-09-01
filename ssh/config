@@ -1,0 +1,13 @@
+Host merkabah
+	HostName 144.126.217.208
+	User hardy
+	IdentityFile ~/.ssh/ashtar.pem
+Host control
+	HostName control.speechanddebate.org
+	User ansible
+	IdentityFile ~/.ssh/ansible.pem
+Host campus
+	HostName campus-logs.speechanddebate.org
+	User ubuntu
+	IdentityFile ~/.ssh/campus.pem
+

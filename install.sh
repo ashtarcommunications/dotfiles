@@ -14,6 +14,7 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "Creating symlinks..."
 ln -sfv "$DOTFILES_DIR/bash/bash_profile" ~/.bash_profile
 ln -sfv "$DOTFILES_DIR/bash/bashrc" ~/.bashrc
+ln -sfv "$DOTFILES_DIR/ssh/config" ~/.ssh/config
 ln -sfv "$DOTFILES_DIR/git/gitconfig" ~/.gitconfig
 ln -sfv "$DOTFILES_DIR/git/gitignore" ~/.gitignore_global
 ln -sfv "$DOTFILES_DIR/javascript/jshintrc" ~/.jshintrc
