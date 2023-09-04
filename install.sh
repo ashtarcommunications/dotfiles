@@ -17,6 +17,8 @@ ln -sfv "$DOTFILES_DIR/bash/bashrc" ~/.bashrc
 ln -sfv "$DOTFILES_DIR/ssh/config" ~/.ssh/config
 ln -sfv "$DOTFILES_DIR/git/gitconfig" ~/.gitconfig
 ln -sfv "$DOTFILES_DIR/git/gitignore" ~/.gitignore_global
+mkdir -p ~/.docker
+ln -sfv "$DOTFILES_DIR/docker/config.json" ~/.docker/config.json
 ln -sfv "$DOTFILES_DIR/javascript/jshintrc" ~/.jshintrc
 ln -sfv "$DOTFILES_DIR/vim/vimrc" ~/.vimrc
 mkdir -p ~/.vim/colors
