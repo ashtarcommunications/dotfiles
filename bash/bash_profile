@@ -1,8 +1,16 @@
-alias ls="ls --color=auto"
-alias l="ls -la"       # List in long format, include dotfiles
-alias la="ls -a"
-alias ll="ls -l"
-alias ld="ls -ld */"   # List in long format, only directories
+if type eza >/dev/null 2>&1; then
+    alias ls="eza --color=always --group-directories-first --git"
+    alias l="eza -alg --color=always --group-directories-first --git"       # List in long format, include dotfiles
+    alias la="eza -a --color=always --group-directories-first --git"
+    alias ll="eza -lg --color=always --group-directories-first --git"
+    alias ld="eza -lgd */ --color=always --group-directories-first --git"   # List in long format, only directories
+else
+    alias ls="ls --color=auto"
+    alias l="ls -la"       # List in long format, include dotfiles
+    alias la="ls -a"
+    alias ll="ls -l"
+    alias ld="ls -ld */"   # List in long format, only directories
+fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

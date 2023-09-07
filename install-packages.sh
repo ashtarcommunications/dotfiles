@@ -39,6 +39,7 @@ apt-get install -y \
     qemu-user-static \
     qemu-utils \
     rename \
+    ripgrep \
     sane \
     screen \
     tailscale \
