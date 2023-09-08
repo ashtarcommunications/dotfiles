@@ -5,6 +5,7 @@ apt-get install -y \
     binutils \
     buildah \
     build-essential \
+    btop \
     cifs-utils \
     cloc \
     code \
