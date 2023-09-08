@@ -10,6 +10,7 @@ apt-get install -y \
     code \
     curl \
     dropbox \
+    duf \
     fastboot \
     ffmpeg \
     fzf \
@@ -17,6 +18,7 @@ apt-get install -y \
     glimpse \
     google-chrome-stable \
     gparted \
+    htop \
     inkscape \
     ivpn-ui \
     jq \
