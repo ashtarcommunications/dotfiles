@@ -18,6 +18,9 @@ PERL_MB_OPT="--install_base \"/home/hardy/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/hardy/perl5"; export PERL_MM_OPT;
 
 complete -C /usr/bin/terraform terraform
+
+#Load cargo env if it exists
+[ -f "$HOME/.cargo/env" ] && \
 . "$HOME/.cargo/env"
 
 #Enable FZF key bindings
