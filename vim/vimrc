@@ -80,6 +80,8 @@ function MyDiff()
 	silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+command! Today :call append('.', strftime("# %Y-%m-%d %A"))
+
 "vim-plug config
 "https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
