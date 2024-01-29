@@ -39,12 +39,12 @@ set splitbelow		"Open split windows below current
 "Spell checking
 augroup set_spell
     autocmd!
-    autocmd FileType text colorscheme default
+    autocmd FileType text colorscheme solarized
     autocmd FileType text setlocal spell
     autocmd FileType text setlocal linebreak
     autocmd FileType text hi SpellBad cterm=underline
     autocmd FileType text hi SpellBad term=underline
-    autocmd FileType markdown colorscheme default
+    autocmd FileType markdown colorscheme solarized
     autocmd FileType markdown setlocal spell
     autocmd FileType markdown setlocal linebreak
     autocmd FileType markdown hi SpellBad cterm=underline
