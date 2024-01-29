@@ -42,13 +42,13 @@ augroup set_spell
     autocmd FileType text colorscheme solarized
     autocmd FileType text setlocal spell
     autocmd FileType text setlocal linebreak
-    autocmd FileType text hi SpellBad cterm=underline
-    autocmd FileType text hi SpellBad term=underline
+    autocmd FileType text hi SpellBad cterm=none ctermfg=DarkRed ctermbg=NONE guifg=DarkRed guibg=NONE
+    autocmd FileType text hi SpellBad term=none termfg=DarkRed termbg=NONE guifg=DarkRed guibg=NONE
     autocmd FileType markdown colorscheme solarized
     autocmd FileType markdown setlocal spell
     autocmd FileType markdown setlocal linebreak
-    autocmd FileType markdown hi SpellBad cterm=underline
-    autocmd FileType markdown hi SpellBad term=underline
+    autocmd FileType markdown hi SpellBad cterm=none ctermfg=DarkRed ctermbg=NONE guifg=DarkRed guibg=NONE
+    autocmd FileType markdown hi SpellBad term=none ctermfg=DarkRed ctermbg=NONE guifg=DarkRed guibg=NONE
 augroup END
 
 "Key mappings
