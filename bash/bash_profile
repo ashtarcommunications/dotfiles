@@ -23,6 +23,7 @@ alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm
 [ -d "$HOME/Nextcloud/Writing/Journals" ] && alias journal="vim `/usr/bin/ls -t $HOME/Nextcloud/Writing/Journals/*.md | head -1`"
 alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
 alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
+alias fixmonitor="xrandr --output DP-2 --pos 1201x480"
 
 # Make Tab autocomplete regardless of filename case
 bind 'set completion-ignore-case on'
