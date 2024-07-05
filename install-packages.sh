@@ -1,7 +1,6 @@
 #!/bin/bash
 
 apt-get install -y \
-    awscli \
     binutils \
     buildah \
     build-essential \
@@ -47,6 +46,7 @@ apt-get install -y \
     screen \
     tailscale \
     terraform \
+    trash-empty \
     vagrant \
     vim \
     virtualbox \
