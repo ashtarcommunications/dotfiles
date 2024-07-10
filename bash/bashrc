@@ -2,8 +2,12 @@ export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
 EDITOR="vim"
 VISUAL="vim"
 
+shopt -s histappend
 export HISTFILESIZE=
 export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+export HISTFILE=~/.bash_eternal_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 [ -n "$PS1" ] && source ~/.bash_profile
 
