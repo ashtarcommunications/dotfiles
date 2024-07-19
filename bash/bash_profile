@@ -24,6 +24,8 @@ alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm
 alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
 alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 alias fixmonitor="xrandr --output DP-2 --pos 1201x480"
+alias disableudp="sudo iptables -A INPUT -p udp -j DROP && sudo iptables -A OUTPUT -p udp -j DROP"
+alias enableudp="sudo iptables -D INPUT -p udp -j DROP && sudo iptables -D OUTPUT -p udp -j DROP"
 
 # Make Tab autocomplete regardless of filename case
 bind 'set completion-ignore-case on'
