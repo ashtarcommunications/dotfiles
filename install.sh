@@ -26,7 +26,12 @@ ln -sfv "$DOTFILES_DIR/vim/vim/colors/solarized.vim" ~/.vim/colors/solarized.vim
 mkdir -p ~/.vim/autoload
 ln -sfv "$DOTFILES_DIR/vim/vim/autoload/plug.vim" ~/.vim/autoload/plug.vim
 
-# Install KDE profile
-konsave -i ~/.dotfiles/kde/hardy.knsv
+# Linux-specific setup
+if [[ "$(uname)" == "Linux" ]]; then
+    # Install KDE profile
+    if [ -x "$(command -v konsave)" ]; then
+        konsave -i ~/.dotfiles/kde/hardy.knsv
+    fi
+fi
 
 echo "Finished installing!"

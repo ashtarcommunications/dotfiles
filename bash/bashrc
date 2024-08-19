@@ -1,7 +1,22 @@
-export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
+# Paths
+if [[ "$(uname)" == "Linux" ]]; then
+    export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
+
+    # Perl setup for Tabroom
+    PATH="/home/hardy/perl5/bin${PATH:+:${PATH}}"; export PATH;
+    PERL5LIB="/home/hardy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+    PERL_LOCAL_LIB_ROOT="/home/hardy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+    PERL_MB_OPT="--install_base \"/home/hardy/perl5\""; export PERL_MB_OPT;
+    PERL_MM_OPT="INSTALL_BASE=/home/hardy/perl5"; export PERL_MM_OPT;
+elif [[ "$uname" == "Darwin" ]]; then
+    export PATH="/usr/local/bin:/Users/hardy/.local/bin:$PATH"
+fi
+
+# Editor config
 EDITOR="vim"
 VISUAL="vim"
 
+# Infinite history
 shopt -s histappend
 export HISTFILESIZE=
 export HISTSIZE=
@@ -9,27 +24,22 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
+# Load bash_profile
 [ -n "$PS1" ] && source ~/.bash_profile
 
-#Prevent Ctrl+S and Ctrl+Q from affecting scrolling in terminals
+# Prevent Ctrl+S and Ctrl+Q from affecting scrolling in terminals
 [[ $- == *i* ]] && stty -ixon
 
+# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-PATH="/home/hardy/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/hardy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/hardy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/hardy/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/hardy/perl5"; export PERL_MM_OPT;
+if [ -x /usr/bin/terraform ]; then
+  complete -C /usr/bin/terraform terraform
+fi
 
-complete -C /usr/bin/terraform terraform
-
-#Load cargo env if it exists
+# Load cargo env if it exists
 [ -f "$HOME/.cargo/env" ] && \
 . "$HOME/.cargo/env"
-
-#Enable FZF key bindings
-source /usr/share/doc/fzf/examples/key-bindings.bash
 

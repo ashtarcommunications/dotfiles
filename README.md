@@ -8,4 +8,4 @@ https://dotfiles.github.io/
 
 http://vimawesome.com
 
-Install with .dotfiles/install.sh and .dotfiles/install-packages.sh
+Install with .dotfiles/install.sh and .dotfiles/packages/*

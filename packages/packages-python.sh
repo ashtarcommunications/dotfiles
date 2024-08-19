@@ -1,5 +1,4 @@
 #!/bin/bash
 
-python3 -m ensurepip --upgrade
+apt-get install python3-venv python3-pip
 python3 -m pip install konsave --break-system-package
-

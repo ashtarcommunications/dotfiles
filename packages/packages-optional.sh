@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Most of these require PPA's or manual installation, just documented here for reference
 apt-get install -y \
     buildah \
     code \
