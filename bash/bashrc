@@ -24,9 +24,6 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-# Command prompt
-PS1="\u@\h:\w\$ "
-
 # Load bash_profile
 [ -n "$PS1" ] && source ~/.bash_profile
 

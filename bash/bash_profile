@@ -1,3 +1,7 @@
+# Command prompt
+PS1="\u@\h:\w\$ "
+
+# Editor config
 export EDITOR="vim"
 export CLICOLOR=1
 
