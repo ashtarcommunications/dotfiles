@@ -1,6 +1,25 @@
 # Command prompt
 PS1="\u@\h:\w\$ "
 
+# Paths
+if [[ "$(uname)" == "Linux" ]]; then
+    export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
+
+    # Perl setup for Tabroom
+    PATH="/home/hardy/perl5/bin${PATH:+:${PATH}}"; export PATH;
+    PERL5LIB="/home/hardy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+    PERL_LOCAL_LIB_ROOT="/home/hardy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+    PERL_MB_OPT="--install_base \"/home/hardy/perl5\""; export PERL_MB_OPT;
+    PERL_MM_OPT="INSTALL_BASE=/home/hardy/perl5"; export PERL_MM_OPT;
+elif [[ "$uname" == "Darwin" ]]; then
+    export PATH="/usr/local/bin:/Users/hardy/.local/bin:/Users/hardy/Library/Python/3.9/bin:$PATH"
+fi
+
+# Set gpodder home
+export GPODDER_HOME=/data/Podcasts/gpodder/config
+export GPODDER_DOWNLOAD_DIR=/data/Podcasts
+
+
 # Prevent Ctrl+S and Ctrl+Q from affecting scrolling in terminals
 [[ $- == *i* ]] && stty -ixon
 
