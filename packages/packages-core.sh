@@ -8,6 +8,7 @@ apt-get install -y \
     cloc \
     curl \
     duf \
+    eza \
     ffmpeg \
     fzf \
     git \
