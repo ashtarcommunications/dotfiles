@@ -1,98 +1,22 @@
-# Command prompt
-PS1="\u@\h:\w\$ "
+# Paths
+if [[ "$(uname)" == "Linux" ]]; then
+    export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
 
-# Editor config
-export EDITOR="vim"
-export CLICOLOR=1
-
-# Don't include duplicate lines in history
-export HISTCONTROL=ignoredups
+    # Perl setup for Tabroom
+    PATH="/home/hardy/perl5/bin${PATH:+:${PATH}}"; export PATH;
+    PERL5LIB="/home/hardy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+    PERL_LOCAL_LIB_ROOT="/home/hardy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+    PERL_MB_OPT="--install_base \"/home/hardy/perl5\""; export PERL_MB_OPT;
+    PERL_MM_OPT="INSTALL_BASE=/home/hardy/perl5"; export PERL_MM_OPT;
+elif [[ "$uname" == "Darwin" ]]; then
+    export PATH="/usr/local/bin:/Users/hardy/.local/bin:/Users/hardy/Library/Python/3.9/bin:$PATH"
+fi
 
 # Set gpodder home
 export GPODDER_HOME=/data/Podcasts/gpodder/config
 export GPODDER_DOWNLOAD_DIR=/data/Podcasts
 
-# Aliases
-if [ -x "$(command -v eza)" ]; then
-    alias ls="eza --color=always --group-directories-first --git"
-    alias l="eza -alg --color=always --group-directories-first --git"       # List in long format, include dotfiles
-    alias la="eza -a --color=always --group-directories-first --git"
-    alias ll="eza -lg --color=always --group-directories-first --git"
-    alias ld="eza -lgd */ --color=always --group-directories-first --git"   # List in long format, only directories
-else
-    alias ls="ls --color=auto"
-    alias l="ls -la"       # List in long format, include dotfiles
-    alias la="ls -a"
-    alias ll="ls -l"
-    alias ld="ls -ld */"   # List in long format, only directories
+# Source bashrc
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
 fi
-
-if [ -x "$(command -v fzf)" ]; then
-    source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias cd..="cd ../"
-
-alias vpn="wg-quick up nsda-hardy"
-alias vpndown="wg-quick down nsda-hardy"
-[ -d "$HOME/Nextcloud/Writing/Journals" ] && alias journal="vim `ls -t $HOME/Nextcloud/Writing/Journals/*.md | head -1`"
-
-# Linux-specific aliases
-if [[ "$(uname)" == "Linux" ]]; then
-    alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
-    alias user-packages="comm -23 <(aptitude search '~i !~M' -F '%p' | sed \"s/ *$//\" | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
-fi
-
-# Desktop-specific aliases
-if [[ "$(hostname)" == "ashtar" ]]; then
-    alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm2.default-release &"
-    alias fixmonitor="xrandr --output DP-4 --pos 1201x480"
-fi
-
-# Mac Homebrew setup
-if [[ "$(uname)" == "Darwin" ]]; then
-    if [ -d "/opt/homebrew" ]; then
-        export HOMEBREW_PREFIX="/opt/homebrew";
-        export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-        export HOMEBREW_REPOSITORY="/opt/homebrew";
-        export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-        [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
-        export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-    fi
-fi
-
-# Make Tab autocomplete regardless of filename case
-bind 'set completion-ignore-case on'
-# List all matches in case multiple possible completions are possible
-bind 'set show-all-if-ambiguous on'
-
-download_bc() {
-    yt-dlp --sleep-interval 20 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(artist)s - %(playlist)s/%(track_number)s - %(track)s.%(ext)s" "$1"
-}
-
-download_bc_bulk() {
-    while IFS= read -r line; do
-       download_bc $line
-    done < urls.txt
-}
-
-download_yt() {
-	yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$1"
-}
-
-download_yt_playlist() {
-    yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
-}
-
-download_yt_user() {
-    yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
-}
-
-album_split() {
-    cd ~/projects/album-splitter && source venv/bin/activate && python3 -m album_splitter -yt "$1" --artist "$2" --album "$3"
-}
-
-[ -d "$HOME/.cargo" ] && . "$HOME/.cargo/env"
