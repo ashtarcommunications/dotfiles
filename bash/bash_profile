@@ -34,7 +34,7 @@ alias cd..="cd ../"
 
 alias vpn="wg-quick up nsda-hardy"
 alias vpndown="wg-quick down nsda-hardy"
-[ -d "$HOME/Nextcloud/Writing/Journals" ] && alias journal="vim `/usr/bin/ls -t $HOME/Nextcloud/Writing/Journals/*.md | head -1`"
+[ -d "$HOME/Nextcloud/Writing/Journals" ] && alias journal="vim `ls -t $HOME/Nextcloud/Writing/Journals/*.md | head -1`"
 
 # Linux-specific aliases
 if [[ "$(uname)" == "Linux" ]]; then
