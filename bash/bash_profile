@@ -52,6 +52,13 @@ if [[ "$(hostname)" == "ashtar" ]]; then
     alias fixmonitor="xrandr --output DP-4 --pos 1201x480"
 fi
 
+# Mac Homebrew setup
+if [[ "$(uname)" == "Darwin" ]]; then
+    if [ -x "$(command -v brew)" ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+fi
+
 # Make Tab autocomplete regardless of filename case
 bind 'set completion-ignore-case on'
 # List all matches in case multiple possible completions are possible
