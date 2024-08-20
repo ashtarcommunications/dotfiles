@@ -16,6 +16,13 @@ elif [[ "$(uname)" == "Darwin" ]]; then
     export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 fi
 
+# Mac Homebrew setup
+if [[ "$(uname)" == "Darwin" ]]; then
+    if [ -x "/opt/homebrew/bin/brew" ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+fi
+
 # Set gpodder home
 export GPODDER_HOME=/data/Podcasts/gpodder/config
 export GPODDER_DOWNLOAD_DIR=/data/Podcasts
@@ -78,13 +85,6 @@ fi
 if [[ "$(hostname)" == "ashtar" ]]; then
     alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm2.default-release &"
     alias fixmonitor="xrandr --output DP-4 --pos 1201x480"
-fi
-
-# Mac Homebrew setup
-if [[ "$(uname)" == "Darwin" ]]; then
-    if [ -x "/opt/homebrew/bin/brew" ]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
 fi
 
 # Make Tab autocomplete regardless of filename case
