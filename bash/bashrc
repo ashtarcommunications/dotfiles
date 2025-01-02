@@ -87,10 +87,13 @@ if [[ "$(hostname)" == "ashtar" ]]; then
     alias fixmonitor="xrandr --output DP-2 --pos 2561x0"
 fi
 
-# Make Tab autocomplete regardless of filename case
-bind 'set completion-ignore-case on'
-# List all matches in case multiple possible completions are possible
-bind 'set show-all-if-ambiguous on'
+# Interactive shell settings
+if [[ $- == *i* ]]; then
+    # Make Tab autocomplete regardless of filename case
+    bind 'set completion-ignore-case on'
+    # List all matches in case multiple possible completions are possible
+    bind 'set show-all-if-ambiguous on'
+fi
 
 download_bc() {
     yt-dlp --sleep-interval 20 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(artist)s - %(playlist)s/%(track_number)s - %(track)s.%(ext)s" "$1"
