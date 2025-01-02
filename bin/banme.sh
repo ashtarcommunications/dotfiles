@@ -2,12 +2,25 @@
 
 # Check if at least one parameter is provided
 if [[ $# -lt 1 ]]; then
-  echo "Usage: $0 <path-to-executable> [delay-in-ms]"
+  echo "Usage: $0 <path-to-executable> [delay-in-ms] [-- <arguments-to-executable>]"
   exit 1
 fi
 
 EXECUTABLE="$1"
-DELAY_MS="${2:-10800000}" # Default delay is 3 hours (10800000 ms)
+
+# Default delay (3 hours = 10800000 ms)
+DELAY_MS=10800000
+
+# Check if the second parameter is a valid delay
+if [[ $# -ge 2 && "$2" =~ ^[0-9]+$ ]]; then
+  DELAY_MS="$2"
+  shift 2 # Shift past the executable and delay
+else
+  shift 1 # Shift past the executable only
+fi
+
+# Remaining parameters are for the executable
+EXECUTABLE_ARGS=("$@")
 
 # Ensure the executable exists and is executable
 if [[ ! -x "$EXECUTABLE" ]]; then
@@ -42,5 +55,5 @@ fi
 echo "$CURRENT_TIME_MS" > "$CACHE_FILE"
 
 # Start the executable
-"$EXECUTABLE" &
+"$EXECUTABLE" "${EXECUTABLE_ARGS[@]}" &
 
