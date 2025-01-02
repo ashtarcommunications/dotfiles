@@ -34,8 +34,8 @@ if [[ "$(uname)" == "Linux" ]]; then
     fi
 
     # Ban me script
-    ln -sfv "$DOTFILES_DIR/bin/banme.sh" /usr/local/bin/banme.sh
-    chmod +x /usr/local/bin/banme.sh
+    sudo ln -sfv "$DOTFILES_DIR/bin/banme.sh" /usr/local/bin/banme.sh
+    sudo chmod +x /usr/local/bin/banme.sh
 fi
 
 echo "Finished installing!"
