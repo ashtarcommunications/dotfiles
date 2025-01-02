@@ -29,5 +29,6 @@ apt-get install -y \
     vim \
     wireguard \
     yt-dlp \
-    zeal
+    zeal \
+    zenity
 
