@@ -7,7 +7,7 @@ Host control
 	User hardy
 	IdentityFile ~/.ssh/hardy.pem
 Host campus
-	HostName campus-logs.speechanddebate.org
+	HostName 3.18.74.17
 	User ubuntu
 	IdentityFile ~/.ssh/campus.pem
 
