@@ -76,6 +76,14 @@ alias vpndown="wg-quick down nsda-hardy"
 [ -d "$HOME/Nextcloud/Writing/Journals" ] && alias journal="vim `/usr/bin/ls --color=never -t $HOME/Nextcloud/Writing/Journals/*.md | head -1`"
 alias unban="rm ~/.cache/banme/*"
 
+alias scotty='function _upload() { \
+  read -sp "Password: " password; \
+  echo ""; \
+  response=$(curl -s -w "\nHTTP Status: %{http_code}\n" -H "Authorization: $password" -F "file=@$1" https://scotty.aaronhardy.net); \
+  echo "$response"; \
+  unset password; \
+}; _upload'
+
 # Linux-specific aliases
 if [[ "$(uname)" == "Linux" ]]; then
     alias wav2mp3='for i in *.wav; do ffmpeg -i "$i" -f mp3 -b:a 320k "${i%.*}.mp3"; done'
