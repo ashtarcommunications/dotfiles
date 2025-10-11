@@ -10,4 +10,7 @@ Host campus
 	HostName 3.18.74.17
 	User ubuntu
 	IdentityFile ~/.ssh/campus.pem
+Host *
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
 

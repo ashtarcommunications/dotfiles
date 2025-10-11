@@ -110,7 +110,7 @@ if [[ $- == *i* ]]; then
 fi
 
 download_bc() {
-    yt-dlp --sleep-interval 20 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(artist)s - %(playlist)s/%(track_number)s - %(track)s.%(ext)s" "$1"
+    /opt/yt-dlp --sleep-interval 20 -x --ignore-errors --audio-format mp3 --add-metadata -o "%(artist)s - %(playlist)s/%(track_number)s - %(track)s.%(ext)s" "$@"
 }
 
 download_bc_bulk() {
@@ -120,15 +120,15 @@ download_bc_bulk() {
 }
 
 download_yt() {
-	yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$1"
+	/opt/yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$@"
 }
 
 download_yt_playlist() {
-    yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$1"
+    /opt/yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$@"
 }
 
 download_yt_user() {
-    yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
+    /opt/yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$@"
 }
 
 album_split() {
