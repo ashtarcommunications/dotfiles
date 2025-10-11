@@ -19,6 +19,7 @@ apt-get install -y \
     jq \
     make \
     moreutils \
+    mosh \
     mtp-tools \
     net-tools \
     pandoc \
