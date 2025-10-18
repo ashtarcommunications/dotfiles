@@ -135,6 +135,10 @@ album_split() {
     cd ~/projects/album-splitter && source venv/bin/activate && python3 -m album_splitter -yt "$1" --artist "$2" --album "$3"
 }
 
+mp4_split() {
+    ffmpeg -i $1 -c copy -map 0 -f segment -segment_time 600 -segment_format mp4 "output%03d.mp4"
+}
+
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
