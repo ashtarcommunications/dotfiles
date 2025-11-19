@@ -3,7 +3,7 @@ PS1="\u@\h:\w\$ "
 
 # Paths
 if [[ "$(uname)" == "Linux" ]]; then
-    export PATH="/usr/local/bin:/home/hardy/.local/bin:$PATH"
+    export PATH="/usr/local/bin:/home/hardy/.local/bin:/opt:$PATH"
 
     # Perl setup for Tabroom
     PATH="/home/hardy/perl5/bin${PATH:+:${PATH}}"; export PATH;
