@@ -136,7 +136,7 @@ album_split() {
 }
 
 mp4_split() {
-    ffmpeg -i $1 -c copy -map 0 -f segment -segment_time 600 -segment_format mp4 "output%03d.mp4"
+    ffmpeg -i "$1" -c copy -map 0 -f segment -segment_time 600 -segment_format mp4 "output%03d.mp4"
 }
 
 # Node Version Manager
