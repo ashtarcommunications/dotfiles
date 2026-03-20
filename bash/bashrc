@@ -120,15 +120,16 @@ download_bc_bulk() {
 }
 
 download_yt() {
-	/opt/yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$@"
+	/opt/yt-dlp --ignore-errors --cookies /opt/yt-dlp-cookies.txt --js-runtimes node --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K "$@"
+
 }
 
 download_yt_playlist() {
-    /opt/yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$@"
+    /opt/yt-dlp --ignore-errors --cookies /opt/yt-dlp-cookies.txt --js-runtimes node --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --yes-playlist "$@"
 }
 
 download_yt_user() {
-    /opt/yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$@"
+    /opt/yt-dlp --ignore-errors --cookies /opt/yt-dlp-cookies.txt --js-runtimes node --format bestaudio --extract-audio --audio-format mp3 --audio-quality 320K --add-metadata -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$@"
 }
 
 album_split() {
@@ -136,7 +137,7 @@ album_split() {
 }
 
 mp4_split() {
-    ffmpeg -i "$1" -c copy -map 0 -f segment -segment_time 600 -segment_format mp4 "output%03d.mp4"
+    ffmpeg -i "$1" -c copy -map 0 -f segment -segment_time 600 -segment_format mp4 -reset_timestamps 1 "output%03d.mp4"
 }
 
 # Node Version Manager
