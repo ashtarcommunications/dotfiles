@@ -98,7 +98,8 @@ fi
 # Desktop-specific aliases
 if [[ "$(hostname)" == "ashtar" ]]; then
     alias mail="/opt/thunderbird/thunderbird -profile /data/Mail/thunderbird/r60q4tm2.default-release &"
-    alias fixmonitor="xrandr --output DP-2 --pos 2561x0"
+    # alias fixmonitor="xrandr --output DP-2 --pos 2561x0"
+    alias fixmonitor="kscreen-doctor output.DP-2.position.1201,480"
 fi
 
 # Interactive shell settings
