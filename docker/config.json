@@ -1,8 +1,0 @@
-{
-	"auths": {
-		"registry.speechanddebate.org": {
-			"auth": "aGFyZHk6amlteW9zaGlpcGlsZXVwMysx"
-		}
-	},
-	"psFormat": "table {{.ID}}\\t{{.Names}}\\t{{.Status}}\\t{{.RunningFor}}\\t{{.Ports}}"
-}
