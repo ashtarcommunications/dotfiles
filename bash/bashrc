@@ -73,7 +73,7 @@ alias cd..="cd ../"
 
 alias vpn="sudo wg-quick up nsda-hardy"
 alias vpndown="sudo wg-quick down nsda-hardy"
-[ -d "$HOME/Nextcloud/Writing/Journals" ] && alias journal="vim `/usr/bin/ls --color=never -t $HOME/Nextcloud/Writing/Journals/*.md | head -1`"
+[ -d "$HOME/Sync/Writing/Journals" ] && alias journal="vim `/usr/bin/ls --color=never -t $HOME/Sync/Writing/Journals/*.md | head -1`"
 
 alias protonup="sudo wg-quick up protonvpn"
 alias protondown="sudo wg-quick down protonvpn"
