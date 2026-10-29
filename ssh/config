@@ -2,10 +2,6 @@ Host merkabah
     HostName 74.207.243.70
 	User hardy
 	IdentityFile ~/.ssh/ashtar.pem
-Host merkabahold
-    HostName 144.126.217.208
-	User hardy
-	IdentityFile ~/.ssh/ashtar.pem
 Host control
 	HostName control.speechanddebate.org
 	User hardy
